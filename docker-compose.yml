@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  web:
+    depends_on:
+      - postgres
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src
+    restart: always
+    stdin_open: true
+    tty: true
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - type: volume
+        source: db
+        target: /var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_DB: test
+      POSTGRES_PASSWORD: password
+      POSTGRES_INITDB_ARGS: --encoding=UTF-8 --locale=C
+
+volumes:
+  db:
