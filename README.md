@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Comparison of reading large amounts of data in Ruby and Rust.
+PS: Using Rust to seed the DB, because it took about 1.5 hours to seed a large amount of data in Ruby
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- How To Use
+  1. docker-compose up
+  1. You can see the log of DB seed submission.
+  1. After running rails server, access localhost:3000.
+  1. You can compare large csv download in Ruby and Rust(ffi).
+  1. Don't forget to execute [docker-compose down -v] command when you are done comparing.
